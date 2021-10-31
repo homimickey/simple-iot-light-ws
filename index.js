@@ -4,9 +4,10 @@ const { Server } = require("socket.io");
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, {
-    /* options */
-});
+const io = new Server(httpServer, {});
+
+const PORT = process.env.PORT || 3000
+
 let colorGlobal = "#fff";
 
 app.use(express.static("public"));
@@ -30,6 +31,6 @@ app.get("/light", (req, res) => {
     res.sendFile(__dirname + "/public" + "/color.html");
 });
 
-httpServer.listen(3000, () => {
+httpServer.listen(, () => {
     console.log("listening on port 3000");
 });
