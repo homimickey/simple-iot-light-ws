@@ -1,0 +1,22 @@
+{
+  "name": "iot-app",
+  "version": "1.0.0",
+  "description": "A basic IOT app for knowledge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "websockets",
+    "IOT"
+  ],
+  "author": "Ravi  Teja",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.3.1"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}

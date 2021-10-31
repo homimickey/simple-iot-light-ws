@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge"
+        />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link rel="stylesheet" href="index.css" />
+        <script src="/socket.io/socket.io.js"></script>
+
+        <title>IOT Color</title>
+    </head>
+    <body>
+        <div class="center" id="circle"></div>
+
+        <script>
+            const socket = io();
+
+            const el = document.getElementById("circle");
+            console.log(el)
+
+            socket.on("conn", (color) => {
+                console.log(color);
+                el.style.backgroundColor = color;
+            });
+
+            socket.on("changed", (color) => {
+                console.log(color);
+                el.style.backgroundColor = color;
+            });
+        </script>
+    </body>
+</html>

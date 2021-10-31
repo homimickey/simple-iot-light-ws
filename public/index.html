@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge"
+        />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>IOT Project</title>
+        <script src="/socket.io/socket.io.js"></script>
+        <style>
+            body {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                justify-content: center;
+                flex-direction: column;
+                font-family: -apple-system,
+                    BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Oxygen, Ubuntu, Cantarell, "Open Sans",
+                    "Helvetica Neue", sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Pick a Color UR Smart light💡</h1>
+        <input type="color" id="color" />
+
+        <h3><a href="/light">Click here</a> to see your light color!! </h3>
+        <p>@ made by Ravi Teja </p>
+        
+
+        <script>
+            const socket = io();
+
+            const el = document.getElementById("color");
+
+            socket.on("conn", (color) => {
+                console.log(color);
+                el.style.backgroundColor = color;
+            });
+
+            el.addEventListener("change", (ev) => {
+                let color = ev.target.value;
+                console.log("debug :" + color);
+                socket.emit("change", color);
+            });
+        </script>
+    </body>
+</html>
