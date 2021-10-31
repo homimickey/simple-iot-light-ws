@@ -6,7 +6,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {});
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
 let colorGlobal = "#fff";
 
@@ -31,6 +31,6 @@ app.get("/light", (req, res) => {
     res.sendFile(__dirname + "/public" + "/color.html");
 });
 
-httpServer.listen(, () => {
-    console.log("listening on port 3000");
+httpServer.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`);
 });
